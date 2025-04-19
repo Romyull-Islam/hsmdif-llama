@@ -92,10 +92,10 @@ This repository implements the HSM-DIF framework for efficient distributed infer
 
 #### Device Information
 
-- **Mac Mini (192.168.1.100)**: 16GB RAM, \~14GB free, macOS Ventura.
-- **Raspberry Pi 1 (10.0.0.179)**: 16GB RAM, \~14GB free, Ubuntu 22.04.
-- **Raspberry Pi 2 (10.0.0.124)**: 8GB RAM, \~7GB free, Ubuntu 22.04.
-- **Raspberry Pi 3 (10.0.0.244)**: 4GB RAM, \~3.5GB free, Ubuntu 22.04.
+- **Mac Mini (192.168.1.1)**: 16GB RAM, \~14GB free, macOS Ventura.
+- **Raspberry Pi 1 (10.0.0.1)**: 16GB RAM, \~14GB free, Ubuntu 22.04.
+- **Raspberry Pi 2 (10.0.0.2)**: 8GB RAM, \~7GB free, Ubuntu 22.04.
+- **Raspberry Pi 3 (10.0.0.3)**: 4GB RAM, \~3.5GB free, Ubuntu 22.04.
 
 #### Installation Steps
 
@@ -142,12 +142,12 @@ This repository implements the HSM-DIF framework for efficient distributed infer
 
    ```bash
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ssh-copy-id user@10.0.0.179
-   ssh-copy-id user@10.0.0.124
-   ssh-copy-id user@10.0.0.244
+   ssh-copy-id user@10.0.0.1
+   ssh-copy-id user@10.0.0.2
+   ssh-copy-id user@10.0.0.3
    ```
 
-##### On Raspberry Pi 1 (10.0.0.179)
+##### On Raspberry Pi 1-3 (10.0.0.1)-10.0.0.3
 
 1. **Clone the Repository**:
 
@@ -187,89 +187,7 @@ This repository implements the HSM-DIF framework for efficient distributed infer
    sudo ufw enable
    ```
 
-##### On Raspberry Pi 2 (10.0.0.124)
 
-Repeat the same steps as for Raspberry Pi 1:
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/yourusername/hsmdif-llama.git
-   cd hsmdif-llama
-   ```
-
-2. **Clone** `llama.cpp`:
-
-   ```bash
-   git clone https://github.com/ggerganov/llama.cpp.git
-   ```
-
-3. **Install Dependencies**:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y cmake libboost-all-dev nlohmann-json3-dev libgrpc++-dev protobuf-compiler-grpc grpc-tools
-   pip install -r requirements.txt
-   ```
-
-4. **Build the Project**:
-
-   ```bash
-   mkdir build && cd build
-   cmake ..
-   make
-   cd ..
-   ```
-
-5. **Open Ports 9999 and 22**:
-
-   ```bash
-   sudo ufw allow 9999/tcp
-   sudo ufw allow 22/tcp
-   sudo ufw enable
-   ```
-
-##### On Raspberry Pi 3 (10.0.0.244)
-
-Repeat the same steps as for Raspberry Pi 1:
-
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/yourusername/hsmdif-llama.git
-   cd hsmdif-llama
-   ```
-
-2. **Clone** `llama.cpp`:
-
-   ```bash
-   git clone https://github.com/ggerganov/llama.cpp.git
-   ```
-
-3. **Install Dependencies**:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y cmake libboost-all-dev nlohmann-json3-dev libgrpc++-dev protobuf-compiler-grpc grpc-tools
-   pip install -r requirements.txt
-   ```
-
-4. **Build the Project**:
-
-   ```bash
-   mkdir build && cd build
-   cmake ..
-   make
-   cd ..
-   ```
-
-5. **Open Ports 9999 and 22**:
-
-   ```bash
-   sudo ufw allow 9999/tcp
-   sudo ufw allow 22/tcp
-   sudo ufw enable
-   ```
 
 #### Model Preparation (on Mac Mini)
 
@@ -313,7 +231,7 @@ Create a `devices.json` file with your cluster configuration:
       "load": 0.1
     },
     {
-      "address": "10.0.0.179",
+      "address": "10.0.0.1",
       "port": 9999,
       "total_memory": 16000,
       "memfree": 14000,
@@ -321,7 +239,7 @@ Create a `devices.json` file with your cluster configuration:
       "load": 0.2
     },
     {
-      "address": "10.0.0.124",
+      "address": "10.0.0.2",
       "port": 9999,
       "total_memory": 8000,
       "memfree": 7000,
@@ -329,7 +247,7 @@ Create a `devices.json` file with your cluster configuration:
       "load": 0.3
     },
     {
-      "address": "10.0.0.244",
+      "address": "10.0.0.3",
       "port": 9999,
       "total_memory": 4000,
       "memfree": 3500,
@@ -413,9 +331,9 @@ Profiling devices...
 Updating device metrics...
 Starting inactive memory manager on each device...
 Started memory manager on 192.168.1.100
-Started memory manager on 10.0.0.179
-Started memory manager on 10.0.0.124
-Started memory manager on 10.0.0.244
+Started memory manager on 10.0.0.1
+Started memory manager on 10.0.0.2
+Started memory manager on 10.0.0.3
 Running inference...
 Root node set to 192.168.1.100:9999
 Model memory: 15000MB, Context memory: 2000MB, Total: 17000MB
