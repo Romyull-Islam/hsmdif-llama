@@ -1,3 +1,4 @@
+
 # HSM-DIF LLaMA: Hybrid Speed-Memory-Aware Distributed Inference Framework
 
 This repository implements the HSM-DIF framework for efficient distributed inference of large language models (LLMs) on heterogeneous clusters. It addresses bottlenecks in memory management, load balancing, communication latency, and device prioritization, while supporting flexible device configurations.
@@ -99,7 +100,19 @@ This repository implements the HSM-DIF framework for efficient distributed infer
 - **Raspberry Pi 2 (10.0.0.2)**: Worker node, 8GB RAM, ~7GB free, Ubuntu 22.04.
 - **Raspberry Pi 3 (10.0.0.3)**: Worker node, 4GB RAM, ~3.5GB free, Ubuntu 22.04.
 
+<<<<<<< HEAD
 #### On Mac Mini (192.168.1.10)
+=======
+- **Mac Mini (192.168.1.1)**: 16GB RAM, \~14GB free, macOS Ventura.
+- **Raspberry Pi 1 (10.0.0.1)**: 16GB RAM, \~14GB free, Ubuntu 22.04.
+- **Raspberry Pi 2 (10.0.0.2)**: 8GB RAM, \~7GB free, Ubuntu 22.04.
+- **Raspberry Pi 3 (10.0.0.3)**: 4GB RAM, \~3.5GB free, Ubuntu 22.04.
+
+#### Installation Steps
+
+##### On Mac Mini (192.168.1.100)
+
+>>>>>>> ba728aaf3bf058ba4686e33f1e026180fd191b6a
 1. **Clone the Repository**:
 
    ```bash
@@ -151,7 +164,11 @@ This repository implements the HSM-DIF framework for efficient distributed infer
    ssh-copy-id user@10.0.0.3
    ```
 
+<<<<<<< HEAD
    Replace `user` with the actual username on the Raspberry Pis. Alternatively, update `SSH_USERNAME` and `SSH_PASSWORD` in `run_hsmdif.py` and `scripts/profile_devices.py` with your credentials.
+=======
+##### On Raspberry Pi 1-3 (10.0.0.1)-10.0.0.3
+>>>>>>> ba728aaf3bf058ba4686e33f1e026180fd191b6a
 
 #### On Raspberry Pi 1 to 3 (10.0.0.1- 10.0.0.1)
 1. **Clone the Repository**:
@@ -333,13 +350,18 @@ python run_hsmdif.py --non-interactive \
 Profiling devices...
 Updating device metrics...
 Starting inactive memory manager on each device...
+<<<<<<< HEAD
 Started memory manager on 192.168.1.10
+=======
+Started memory manager on 192.168.1.100
+>>>>>>> ba728aaf3bf058ba4686e33f1e026180fd191b6a
 Started memory manager on 10.0.0.1
 Started memory manager on 10.0.0.2
 Started memory manager on 10.0.0.3
 Running inference...
 Root node set to 192.168.1.10:9999
 Model memory: 15000MB, Context memory: 2000MB, Total: 17000MB
+<<<<<<< HEAD
 Device 192.168.1.10:9999 allocated 85 tokens (Memory: 14000MB, Speed: 10 tokens/sec)
 Device 10.0.0.1:9999 allocated 43 tokens (Memory: 14000MB, Speed: 5 tokens/sec)
 Running distributed inference across devices
@@ -474,3 +496,6 @@ Stopped memory manager on 10.0.0.3
   netstat -tuln | grep 9999
   ```
 - **Memory Issues**: If a device runs out of memory, HSM-DIF will distribute the load across more devices. Ensure `devices.json` reflects accurate memory values.
+=======
+Device 192.168.1.100:9999 allocated 85 tokens (Memory: 14000MB, Speed: 10 tokens/sec)
+``
