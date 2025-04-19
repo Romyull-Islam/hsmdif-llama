@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package inference;
+
+service InferenceService {
+    rpc RunInference (InferenceRequest) returns (InferenceResponse);
+}
+
+message InferenceRequest {
+    bytes input_tokens = 1; // Serialized tokens
+    int32 n_past = 2; // Number of past tokens
+    int32 tokens_to_generate = 3; // Number of tokens to generate
+    int32 batch_size = 4; // Batch size for processing
+}
+
+message InferenceResponse {
+    bytes output_tokens = 1; // Serialized generated tokens
+    int32 n_past = 2; // Updated number of past tokens
+    double latency_ms = 3; // Latency in milliseconds
+}
