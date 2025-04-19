@@ -39,58 +39,7 @@ This repository implements the HSM-DIF framework for efficient distributed infer
   - Python 3.8+ (for profiling, memory management, and wrapper script).
   - `llama.cpp` (for model inference and tokenization).
 
-### Steps to Clone and Upload to GitHub
 
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/Romyull-Islam/hsmdif-llama.git
-   cd hsmdif-llama
-   ```
-
-   If you haven't created the repository yet, create it on GitHub and initialize locally:
-
-   ```bash
-   mkdir hsmdif-llama
-   cd hsmdif-llama
-   git init
-   git remote add origin https://github.com/Romyull-Islam/hsmdif-llama.git
-   ```
-
-2. **Add All Files**:
-
-   Ensure the project structure matches:
-
-   ```
-   hsmdif-llama/
-   ├── src/
-   │   └── hsmdif.cpp
-   ├── scripts/
-   │   ├── inactive_memory_manager.py
-   │   └── profile_devices.py
-   ├── models/
-   │   ├── llama_30b_q4_0.gguf
-   │   └── llama_30b_q8_0.gguf
-   ├── inference_service.proto
-   ├── CMakeLists.txt
-   ├── README.markdown
-   ├── requirements.txt
-   └── run_hsmdif.py
-   ```
-
-3. **Clone `llama.cpp`**:
-
-   ```bash
-   git clone https://github.com/ggerganov/llama.cpp.git
-   ```
-
-4. **Commit and Push to GitHub**:
-
-   ```bash
-   git add .
-   git commit -m "Initial commit of HSM-DIF LLaMA project"
-   git push origin main
-   ```
 
 ### Installation on Devices
 
