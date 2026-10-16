@@ -1,0 +1,58 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+_deps/
+Makefile
+
+# Generated protobuf / gRPC sources
+*.pb.cc
+*.pb.h
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.lo
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Third-party checkout and model weights (see README setup)
+llama.cpp/
+models/
+*.gguf
+
+# Runtime files written by run_hsmdif.py / hsmdif
+temp.json
+temp_devices.json
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
