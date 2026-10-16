@@ -1,7 +1,8 @@
-
 # HSM-DIF LLaMA: Hybrid Speed-Memory-Aware Distributed Inference Framework
 
 This repository implements the HSM-DIF framework for efficient distributed inference of large language models (LLMs) on heterogeneous clusters. It addresses bottlenecks in memory management, load balancing, communication latency, and device prioritization, while supporting flexible device configurations.
+
+> **Status: research prototype.** The setup and usage sections describe the intended workflow; the example outputs are illustrative, not measured (see [Usage](#usage)). `CMakeLists.txt` and the `llama.cpp` API calls may need adapting to the `llama.cpp` version you clone.
 
 ## Features
 
@@ -103,7 +104,7 @@ This repository implements the HSM-DIF framework for efficient distributed infer
 
    Replace `user` with the actual username on the Raspberry Pis. Alternatively, update `SSH_USERNAME` and `SSH_PASSWORD` in `run_hsmdif.py` and `scripts/profile_devices.py` with your credentials.
 
-#### On Raspberry Pi 1 to 3 (10.0.0.1- 10.0.0.1)
+#### On Raspberry Pi 1 to 3 (10.0.0.1 to 10.0.0.3)
 1. **Clone the Repository**:
 
    ```bash
@@ -220,6 +221,8 @@ Create a `devices.json` file in the `hsmdif-llama` directory with your cluster c
 ```
 
 ## Usage
+
+> **About the example output:** the "Expected Output" blocks below are illustrative, not measured. They show the format of the messages the tools print; `[Inference output]` stands in for generated text, and the token allocations, memory figures and speeds (e.g. `Inference speed: 12 tokens/second`) are example values, not benchmark results.
 
 ### Start Worker Nodes
 
